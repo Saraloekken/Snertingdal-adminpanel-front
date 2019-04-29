@@ -65,6 +65,10 @@ border: none;
 border-radius: 4px;
 }
 
+.navbar{
+text-align:center;
+position: fixed;
+}
 
 .fa-users-cog{
 color:#2A8B9D;    
@@ -72,14 +76,21 @@ font-size:60px;
 margin-bottom:15px;
 }
 
+.navbar .fa-users-cog{
+color:#2A8B9D;    
+font-size:60px;
+margin-bottom:10px;
+margin-top:5px;
+margin-left:20px;
+}
 
 ul {
 list-style-type: none;
 margin: 0;
 padding: 0;
 width:140px; 
-height: 100%;
-position: fixed; 
+height: 100%; 
+text-align:left;
 }
 
 
@@ -97,7 +108,7 @@ background-color: #2A8B9D;
 color: white;
 }
 
-.active {
+li a :active {
 background-color: #4CAF50;
 color: white;
 }
