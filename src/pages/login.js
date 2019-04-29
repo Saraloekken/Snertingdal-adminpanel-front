@@ -6,7 +6,7 @@ export default class Login extends Component {
             <div>
     
             <div className="loginbox">
-                <i className="fas fa-user-cog"></i>
+                <i className="fal fa-users-cog"></i>
                     <div className="username">
                         <input type="text" className="input" placeholder="Brukernavn"/>
                         <i className="fa fa-user"></i>
