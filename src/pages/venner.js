@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { link } from 'react-router-dom';
-import './src/style.css';
+import '../../src/style.css';
 
 export default class Venner extends Component {
     render()   {
@@ -9,14 +8,12 @@ export default class Venner extends Component {
 
     
             
-            
-            
-            
-            
-            
-            
-            
-            
+            <p>venner er kult ingen protest</p>
+            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
+            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
+            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
+            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
+            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
             
             
             
