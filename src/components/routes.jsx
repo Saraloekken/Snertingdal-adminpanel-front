@@ -8,7 +8,7 @@ import Venner from '../pages/venner';
 import Booking from '../pages/booking';
 import Kontakt from '../pages/kontakt';
 import Events from '../pages/events';
-import Logout from '../pages/logout';
+
 
 
 const Routes = () => (
@@ -19,7 +19,7 @@ const Routes = () => (
         <Route path="/booking" exact component={Booking} />
         <Route path="/kontakt" exact component={Kontakt} />
         <Route path="/events" exact component={Events} />
-        <Route path="/logout" exact component={Logout} />
+        
     </Switch>
 );
 
