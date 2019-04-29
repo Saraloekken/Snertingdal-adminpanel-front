@@ -5,8 +5,8 @@ class Navbar extends Component {
     return (
         
     <div className = "navbar">
+       <i className="fal fa-users-cog"></i>
         <ul>
-            <i className="fal fa-users-cog"></i>
             <li><a href="hjem.js"><i className="fas fa-home"></i> Hjem</a></li>
             <li><a href="events.js"><i className="fas fa-calendar-week"></i> Events</a></li>
             <li><a href="historie.js"><i className="fas fa-history"></i> Historie</a></li>
