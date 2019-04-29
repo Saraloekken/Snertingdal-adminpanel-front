@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './components/routes';
 import App from './app';
-import './style2.css';
-/*import './style.css';*/
+import './style.css';
 import Login from './pages/login.js';
 
 ReactDOM.render(
-    <App>
+   <Router>
+        <App> 
         <Login />
-    </App>, 
+    <Routes />
+    </App>
+    </Router>,
     document.getElementById('root')
 );
     
