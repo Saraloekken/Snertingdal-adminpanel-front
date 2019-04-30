@@ -6,7 +6,7 @@ export default class Hjem extends Component {
         return ( 
             <div>
 
-    
+    <div class="placeholder"></div>
             
             
             
