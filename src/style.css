@@ -108,9 +108,18 @@ background-color: #2A8B9D;
 color: white;
 }
 
-li a :active {
-background-color: #4CAF50;
+
+.activeStyle {
+background-color: #2A8B9D;
 color: white;
 }
 
-
+.placeholder {
+position:inline;
+background-color:white;
+width:36%;
+height:100%;
+border-radius:4px;
+float:right;
+margin-right:2%;
+}
