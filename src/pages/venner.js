@@ -8,15 +8,6 @@ export default class Venner extends Component {
 
     
             
-            <p>venner er kult ingen protest</p>
-            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
-            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
-            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
-            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
-            <p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p><p>venner er kult ingen protest</p>
-            
-            
-            
             
             </div>
         )   
