@@ -68,6 +68,8 @@ border-radius: 4px;
 .navbar{
 text-align:center;
 position: fixed;
+top:0;
+left:0;
 }
 
 .fa-users-cog{
@@ -115,10 +117,9 @@ color: white;
 }
 
 .placeholder {
-position:inline;
 background-color:white;
 width:36%;
-height:100%;
+height:98vh;
 border-radius:4px;
 float:right;
 margin-right:2%;
