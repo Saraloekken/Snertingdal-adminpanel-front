@@ -8,7 +8,7 @@ export default class Kontakt extends Component {
 
     
             
-            
+            <div className="placeholder"></div>
             
             
             
