@@ -82,7 +82,7 @@ margin-bottom:15px;
 color:#2A8B9D;    
 font-size:60px;
 margin-bottom:10px;
-margin-top:5px;
+margin-top:10px;
 margin-left:20px;
 }
 
@@ -118,9 +118,10 @@ color: white;
 
 .placeholder {
 background-color:white;
-width:36%;
-height:98vh;
+width:140vh;
+height:95vh;
 border-radius:4px;
 float:right;
-margin-right:2%;
+margin-right:8%;
+margin-top:10px;
 }
