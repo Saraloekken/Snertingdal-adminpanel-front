@@ -52,6 +52,10 @@ export default class Login extends Component {
         var nav = document.querySelector('.navbar');
         nav.style.display = 'none';
     }
+componentWillUnmount() {
+    var nav = document.querySelector('.navbar');
+        nav.style.display = 'block';
+}
     
 render(){
     return ( 
