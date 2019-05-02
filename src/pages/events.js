@@ -8,7 +8,7 @@ export default class Events extends Component {
 
     
             
-            
+            <div className="placeholder"></div>
             
             
             
