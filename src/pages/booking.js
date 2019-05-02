@@ -5,9 +5,8 @@ export default class Booking extends Component {
     render()   {
         return ( 
             <div>
-
-    
             
+          <div className="placeholder"></div>
             
             
             
