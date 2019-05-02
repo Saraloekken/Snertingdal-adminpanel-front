@@ -14,7 +14,7 @@ class Navbar extends Component {
             <li><NavLink exact to ="/booking" activeClassName = "activeStyle"><i className="fas fa-bookmark"></i> Booking</NavLink></li>
             <li><NavLink exact to ="/kontakt" activeClassName = "activeStyle"><i className="fas fa-address-book"></i> Kontakt oss</NavLink></li>
             <li><NavLink exact to ="/venner" activeClassName = "activeStyle"><i className="fas fa-user-friends"></i> Våre venner</NavLink></li>
-            <li><NavLink exact to ="/logout" activeClassName = "activeStyle"><i className="fas fa-sign-out-alt"></i> Logg ut</NavLink></li>
+            <li><NavLink exact to ="/login" activeClassName = "activeStyle"><i className="fas fa-sign-out-alt"></i> Logg ut</NavLink></li>
         </ul>    
     </div>    
         
