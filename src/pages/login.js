@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 
 export default class Login extends Component { 
     constructor(props){
         super(props);
 
             this.state={
+
                 error: false,
                 redirect: false,    
                 
@@ -20,21 +22,21 @@ export default class Login extends Component {
         
         form.append('login', data);
         fetch('http://localhost:8080/webprosjekt/backend.php', {
-        method: 'POST', 
+        method: 'POST', //bruk get i backend   
         header: {},
         body: form,
         })
     .then(res => res.json())
     .then(response => {
-            if(response.success === false){
-                //error
+            if(response.success === false){   //nei
+                
                 this.setState({error: true})
             }
-            if(response.success === true){
-               //success
+            if(response.success === true){   //ja
+              
                 this.setState({redirect: true})
                }
-            console.log(response);
+          
         })
     }
         handleChange = (event) => {
@@ -48,19 +50,30 @@ export default class Login extends Component {
         this.login(data);
     }
     
-    componentDidMount() {
-        var nav = document.querySelector('.navbar');
-        nav.style.display = 'none';
+     renderRedirect = () => {
+        if (this.state.redirect === true) {
+            return <Redirect to='/hjem'/>
+        }
     }
-componentWillUnmount() {
-    var nav = document.querySelector('.navbar');
-        nav.style.display = 'block';
-}
     
+
+        componentDidMount() {
+            var nav = document.querySelector('.navbar');
+            nav.style.display = 'none';
+        }
+        componentWillUnmount() {
+            var nav = document.querySelector('.navbar');
+            nav.style.display = 'block';
+        }
+    
+         
 render(){
     return ( 
-    
+        
         <div className="loginbox">
+        
+            {this.renderRedirect()}
+         
             <i className="fal fa-users-cog"></i>
                 <div className="username">
 
@@ -92,11 +105,11 @@ render(){
     }
 }    
 
-/* under submitfunkjsonen, lag en ny funksjon som heter renderredirect, sjekker om staten er true. hvis den er true, kjør en return på <redirect to="/"> husk å importere med react router dom. 
+/* lag en ny funksjon som heter renderredirect, sjekker om staten er true. hvis den er true, kjør en return på <redirect to="/"> 
 
-import {redirect} from React-Router-Dom 
+import {redirect}
 
-inni første div i return, legg til <this.renderRedirect } 
+legg til <this.renderRedirect } 
 
 
 //authkeyen 
