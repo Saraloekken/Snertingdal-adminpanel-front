@@ -7,7 +7,7 @@ export default class Venner extends Component {
             <div>
 
     
-            
+            <div className="placeholder"></div>
             
             </div>
         )   
