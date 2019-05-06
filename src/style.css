@@ -1,5 +1,6 @@
 *{
-font-family: arial;    
+font-family: arial;
+margin:0;
 }
 
 body{
@@ -89,8 +90,7 @@ margin-left:20px;
 ul {
 list-style-type: none;
 margin: 0;
-padding: 0;
-width:140px; 
+padding: 0; 
 height: 100%; 
 text-align:left;
 }
@@ -98,11 +98,11 @@ text-align:left;
 
 li a {
 display: block;
-width:140px;
+width:12vw;
 color:#4c4c4c;
 padding: 12px 16px;
 text-decoration:none;
-    
+box-sizing:border-box;    
 }
 
 li a:hover {
@@ -118,10 +118,11 @@ color: white;
 
 .placeholder {
 background-color:white;
-width:140vh;
+width:76vw;
 height:95vh;
 border-radius:4px;
-float:right;
+float:left;
 margin-right:8%;
 margin-top:10px;
+margin-left:12vw;
 }
