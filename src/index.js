@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './components/routes';
-import App from './app';
+import App from './App';
 import './style.css';
-import Login from './pages/login.js';
+import Login from './pages/Login';
 
 ReactDOM.render(
-   <Router>
+    <Router>
         <App> 
-    <Routes />
-    </App>
+            <Login />
+            <Routes />
+        </App>
     </Router>,
     document.getElementById('root')
 );
