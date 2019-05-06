@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { Component } from 'react';
 
 
 import Login from '../pages/Login';
@@ -11,21 +12,45 @@ import Events from '../pages/Events';
 import Historie from '../pages/Historie';
 
 
+export default class Routes extends Component {
 
-const Routes = () => (
-    <Switch>
-        <Route path="/login" exact component={Login} />
-        <Route path="/hjem" exact component={Hjem} />
-        <Route path="/venner" exact component={Venner} />
-        <Route path="/booking" exact component={Booking} />
-        <Route path="/kontakt" exact component={Kontakt} />
-        <Route path="/events" exact component={Events} />  
-        <Route path="/historie" exact component={Historie} />
-        <Route path="/" exact component={Login} /> 
-        
-    </Switch>
-);
+    
+requireAuth(nextState, replace, next){
+    if (true) {
+        replace({
+            pathname: "/login",
+            state: {nextPathname: nextState.location.pathname}
+        });
+    }
+    
+    next();
+}    
+    
+    
+    render(){
+        return(
+            <Switch>
+                <Route path="/login" exact component={Login} />
+                <Route path="/hjem" exact component={Hjem} onEnter={this.requireAuth} />
+                <Route path="/venner" exact component={Venner} onEnter={this.requireAuth} />
+                <Route path="/booking" exact component={Booking} onEnter={this.requireAuth} />
+                <Route path="/kontakt" exact component={Kontakt} onEnter={this.requireAuth} />
+                <Route path="/events" exact component={Events} onEnter={this.requireAuth} />  
+                <Route path="/historie" exact component={Historie} onEnter={this.requireAuth} />
+                <Route path="/" exact component={Login} /> 
+            </Switch>
+        );
+    }
+}
 
-export default Routes;
 
 
+
+
+
+
+
+
+
+
+// bilde i datebase - varchar - blob eller base64 string i et tekstfelt.    
