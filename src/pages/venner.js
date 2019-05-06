@@ -107,7 +107,7 @@ export default class Venner extends Component {
                 </div>
             
             <button type="button" className="addbutton" 
-            onClick={this.submit}>+ Legg til ny</button>  
+            onClick={this.submit}>Legg til ny</button>  
             
             </div>
             
