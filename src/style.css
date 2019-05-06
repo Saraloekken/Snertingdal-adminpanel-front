@@ -66,6 +66,21 @@ border: none;
 border-radius: 4px;
 }
 
+.addbutton{
+background:#2A8B9D;
+display: inline-block;
+width: 100px;
+font-size: 16px;
+height: 35px;
+color: #fff;
+text-decoration: none;
+border: none;
+border-radius: 4px;
+float:left;
+margin-top:20px;
+margin-left:25px;
+}
+
 .navbar{
 text-align:center;
 position: fixed;
@@ -125,4 +140,76 @@ float:left;
 margin-right:8%;
 margin-top:10px;
 margin-left:12vw;
+}
+
+
+.friendsinput{
+width: 30%;
+height: 30px;
+padding: 3px 0px 3px 15px;
+background: #fff;
+color: #666;
+border: 2px solid #ddd;
+border-radius: 4px;
+margin-left:25px;
+}
+
+.infoinput{
+width: 30%;
+height: 120px;
+padding: 3px 0px 3px 15px;
+background: #fff;
+color: #666;
+border: 2px solid #ddd;
+border-radius: 4px;
+margin-left:25px;
+}
+
+h4 {
+font-size:15px;
+color:#4c4c4c;
+margin:25px 0px 10px 30px;
+}
+
+
+
+.file-input {
+  display: inline-block;
+  text-align: left;
+  background: #fff;
+  padding: 0px 16px 0px 30px;
+  width: 350px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.file-input > [type='file'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.file-input > .filebutton {
+  display: inline-block;
+  cursor: pointer;
+  background: #eee;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.file-input:hover > .filebutton {
+  background: #2A8B9D;
+  color: white;
+}
+
+.file-input > .label {
+  color: #333;
+  white-space: nowrap;
+  opacity: .3;
 }
