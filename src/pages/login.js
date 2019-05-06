@@ -34,6 +34,7 @@ export default class Login extends Component {
             }
             if(response.success === true){   //ja
               
+                localStorage.setItem('auth', response.authentication)
                 this.setState({redirect: true})
            }
           
@@ -60,6 +61,10 @@ export default class Login extends Component {
     componentDidMount() {
         var nav = document.querySelector('.navbar');
         nav.style.display = 'none';
+        
+        if(localStorage.getItem('auth') !== null) {
+            localStorage.removeItem('auth');
+        }
     }
     componentWillUnmount() {
         var nav = document.querySelector('.navbar');
