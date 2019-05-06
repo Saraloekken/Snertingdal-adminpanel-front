@@ -9,7 +9,6 @@ import Login from './pages/Login';
 ReactDOM.render(
     <Router>
         <App> 
-            <Login />
             <Routes />
         </App>
     </Router>,
