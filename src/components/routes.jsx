@@ -2,13 +2,13 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 
-import Login from '../pages/login';
-import Hjem from '../pages/hjem';
-import Venner from '../pages/venner';
-import Booking from '../pages/booking';
-import Kontakt from '../pages/kontakt';
-import Events from '../pages/events';
-import Historie from '../pages/events';
+import Login from '../pages/Login';
+import Hjem from '../pages/Hjem';
+import Venner from '../pages/Venner';
+import Booking from '../pages/Booking';
+import Kontakt from '../pages/Kontakt';
+import Events from '../pages/Events';
+import Historie from '../pages/Historie';
 
 
 
