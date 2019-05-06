@@ -5,16 +5,16 @@ export default class Login extends Component {
     constructor(props){
         super(props);
 
-            this.state={
+        this.state={
 
-                error: false,
-                redirect: false,    
-                
-                username: '',
-                password: ''             
-                
-            }
+            error: false,
+            redirect: false,    
+
+            username: '',
+            password: ''             
+
         }
+    }
         
         
     login = (data) => {
@@ -35,13 +35,13 @@ export default class Login extends Component {
             if(response.success === true){   //ja
               
                 this.setState({redirect: true})
-               }
+           }
           
         })
     }
-        handleChange = (event) => {
-            this.setState({[event.target.name]: event.target.value});
-        }
+    handleChange = (event) => {
+        this.setState({[event.target.name]: event.target.value});
+    }
         
     
     
@@ -50,31 +50,31 @@ export default class Login extends Component {
         this.login(data);
     }
     
-     renderRedirect = () => {
+    renderRedirect = () => {
         if (this.state.redirect === true) {
             return <Redirect to='/hjem'/>
         }
     }
     
 
-        componentDidMount() {
-            var nav = document.querySelector('.navbar');
-            nav.style.display = 'none';
-        }
-        componentWillUnmount() {
-            var nav = document.querySelector('.navbar');
-            nav.style.display = 'block';
-        }
-    
+    componentDidMount() {
+        var nav = document.querySelector('.navbar');
+        nav.style.display = 'none';
+    }
+    componentWillUnmount() {
+        var nav = document.querySelector('.navbar');
+        nav.style.display = 'block';
+    }
+
          
-render(){
-    return ( 
+    render(){
+        return ( 
         
-        <div className="loginbox">
-        
-            {this.renderRedirect()}
-         
-            <i className="fal fa-users-cog"></i>
+            <div className="loginbox">
+
+                {this.renderRedirect()}
+
+                <i className="fal fa-users-cog"></i>
                 <div className="username">
 
                     <input type="text" name="username" 
