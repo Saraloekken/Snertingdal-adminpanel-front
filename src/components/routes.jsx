@@ -19,8 +19,9 @@ const Routes = () => (
         <Route path="/venner" exact component={Venner} />
         <Route path="/booking" exact component={Booking} />
         <Route path="/kontakt" exact component={Kontakt} />
-        <Route path="/events" exact component={Events} />
+        <Route path="/events" exact component={Events} />  
         <Route path="/historie" exact component={Historie} />
+        <Route path="/" exact component={Login} /> 
         
     </Switch>
 );
