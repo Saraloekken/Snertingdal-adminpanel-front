@@ -25,7 +25,7 @@ export default class Login extends Component {
         method: 'POST', //bruk get i backend   
         header: {},
         body: form,
-        })
+        })  
     .then(res => res.json())
     .then(response => {
             if(response.success === false){   //nei
