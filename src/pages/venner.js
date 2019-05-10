@@ -16,7 +16,7 @@ export default class Venner extends Component {
         var form = new FormData();
         
         form.append('insert', data);
-        fetch('http://localhost:8080/webprosjekt/pages/venner/venner-insert.php', {
+        fetch('http://folk.ntnu.no/saralok/snertingdal/pages/venner/venner-insert.php', {
         method: 'POST',  
         header: {},
         body: form,
