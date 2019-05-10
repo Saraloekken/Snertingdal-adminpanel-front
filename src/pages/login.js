@@ -21,7 +21,7 @@ export default class Login extends Component {
         var form = new FormData();
         
         form.append('login', data);
-        fetch('http://localhost:8080/webprosjekt/backend.php', {
+        fetch('http://folk.ntnu.no/saralok/snertingdal/backend.php', {
         method: 'POST', //bruk get i backend   
         header: {},
         body: form,
