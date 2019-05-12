@@ -1,174 +1,78 @@
-*{
-font-family: arial;
-margin:0;
+* {
+  font-family: arial;
+  margin: 0;
+
 }
 
-body{
-background: #eee;
+body {
+  padding: 0;
+
+}
+.container {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  height: 100vh;
 }
 
-.loginbox{
-width: 350px;
-padding: 40px 30px;
-background: #fff;
-border-radius: 4px;
-margin: auto;
-position: absolute;
-left: 0;
-right: 0;
-top: 30%;    
-text-align:center;
-}
-
-.username{
-position: relative;
-margin-bottom: 15px;
-}
-
-.username .fa{
-position: absolute;
-right: 15px;
-top: 21px;
-color: #999;
-}
-
-.password{
-position: relative;
-margin-bottom: 15px;
-}
-
-.password .fa{
-position: absolute;
-right: 15px;
-top: 21px;
-color: #999;      
-}
-
-.input{
-width: 95%;
-height: 50px;
-padding: 3px 0px 3px 15px;
-background: #fff;
-color: #666;
-border: 2px solid #ddd;
-border-radius: 4px;
-}
-
-.button{
-background:#2A8B9D;
-display: inline-block;
-width: 100%;
-font-size: 16px;
-height: 50px;
-color: #fff;
-text-decoration: none;
-border: none;
-border-radius: 4px;
-}
-
-.addbutton{
-background:#2A8B9D;
-display: inline-block;
-width: 100px;
-font-size: 16px;
-height: 35px;
-color: #fff;
-text-decoration: none;
-border: none;
-border-radius: 4px;
-float:left;
-margin-top:20px;
-margin-left:25px;
-}
-
-.navbar{
-text-align:center;
-position: fixed;
-top:0;
-left:0;
-}
-
-.fa-users-cog{
-color:#2A8B9D;    
-font-size:60px;
-margin-bottom:15px;
-}
-
-.navbar .fa-users-cog{
-color:#2A8B9D;    
-font-size:60px;
-margin-bottom:10px;
-margin-top:10px;
-margin-left:20px;
+/* navbar */
+.navbar .fa-users-cog {
+  color: #2a8b9d;
+  font-size: 60px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 ul {
-list-style-type: none;
-margin: 0;
-padding: 0; 
-height: 100%; 
-text-align:left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: left;
 }
 
-
 li a {
-display: block;
-width:12vw;
-color:#4c4c4c;
-padding: 12px 16px;
-text-decoration:none;
-box-sizing:border-box;    
+  display: block;
+  width: 12vw;
+  color: #4c4c4c;
+  padding: 12px 16px;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 li a:hover {
-background-color: #2A8B9D;
-color: white;
+  background-color: #2a8b9d;
+  color: white;
 }
 
-
 .activeStyle {
-background-color: #2A8B9D;
-color: white;
+  background-color: #2a8b9d;
+  color: white;
 }
 
 .placeholder {
-background-color:white;
-width:76vw;
-height:95vh;
-border-radius:4px;
-float:left;
-margin-right:8%;
-margin-top:10px;
-margin-left:12vw;
+  background: #fff;
+}
+.friendsinput {
+  width: 30%;
+  height: 30px;
+  padding: 3px 0px 3px 15px;
+  background: #fff;
+  color: #666;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin-left: 25px;
 }
 
-
-.friendsinput{
-width: 30%;
-height: 30px;
-padding: 3px 0px 3px 15px;
-background: #fff;
-color: #666;
-border: 2px solid #ddd;
-border-radius: 4px;
-margin-left:25px;
-}
-
-.infoinput{
-width: 30%;
-height: 120px;
-padding: 3px 0px 3px 15px;
-background: #fff;
-color: #666;
-border: 2px solid #ddd;
-border-radius: 4px;
-margin-left:25px;
-}
-
-h4 {
-font-size:15px;
-color:#4c4c4c;
-margin:25px 0px 10px 30px;
+.infoinput {
+  width: 30%;
+  height: 120px;
+  padding: 3px 0px 3px 15px;
+  background: #fff;
+  color: #666;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin-left: 25px;
 }
 
 
@@ -183,7 +87,7 @@ margin:25px 0px 10px 30px;
   border-radius: 4px;
 }
 
-.file-input > [type='file'] {
+.file-input > [type="file"] {
   position: absolute;
   top: 0;
   left: 0;
@@ -204,12 +108,99 @@ margin:25px 0px 10px 30px;
 }
 
 .file-input:hover > .filebutton {
-  background: #2A8B9D;
+  background: #2a8b9d;
   color: white;
 }
 
 .file-input > .label {
   color: #333;
   white-space: nowrap;
-  opacity: .3;
+  opacity: 0.3;
+}
+
+
+
+
+
+
+
+
+/* Login admin style */
+.loginbox {
+  width: 350px;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 4px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30%;
+  text-align: center;
+}
+
+.username {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.username .fa {
+  position: absolute;
+  right: 15px;
+  top: 21px;
+  color: #999;
+}
+
+.password {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.password .fa {
+  position: absolute;
+  right: 15px;
+  top: 21px;
+  color: #999;
+}
+
+.input {
+  width: 95%;
+  height: 50px;
+  padding: 3px 0px 3px 15px;
+  background: #fff;
+  color: #666;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.button {
+  background: #2a8b9d;
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  height: 50px;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.addbutton {
+  background: #2a8b9d;
+  display: inline-block;
+  width: 100px;
+  font-size: 16px;
+  height: 35px;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+.fa-users-cog {
+  color: #2a8b9d;
+  font-size: 60px;
+  margin-bottom: 15px;
 }
