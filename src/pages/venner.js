@@ -116,11 +116,3 @@ export default class Venner extends Component {
     }
 }
 
-
-//i cms har jeg laget dette
-//denne fungerer med at jeg kan sette inn navnet på vennen og om vennen
-//trykker jeg sumbit, går den gjennom en check på backend for å sørge for at alt sammen en sikekrt
-//spør om sikkerhet: bruker prepared statements for å sørge for at alt er sikkert/sikre mot hackeangrep 
-//alt blir lagt inn i databasen. 
-//Sender fra frontend til backend og lagrer i databasen. 
-//- Men har enda ikke hentet, men har en ide om hvordan jeg gjør det. har basically gjort det i login. 
