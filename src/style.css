@@ -77,7 +77,7 @@ text-decoration: none;
 border: none;
 border-radius: 4px;
 float:left;
-margin-top:20px;
+margin-top:0px;
 margin-left:25px;
 }
 
@@ -133,7 +133,7 @@ color: white;
 
 .placeholder {
 background-color:white;
-width:76vw;
+width:33vw;
 height:95vh;
 border-radius:4px;
 float:left;
@@ -144,7 +144,7 @@ margin-left:12vw;
 
 
 .friendsinput{
-width: 30%;
+width: 85%;
 height: 30px;
 padding: 3px 0px 3px 15px;
 background: #fff;
@@ -152,6 +152,7 @@ color: #666;
 border: 2px solid #ddd;
 border-radius: 4px;
 margin-left:25px;
+margin-bottom:20px;
 }
 
 .infoinput{
@@ -177,7 +178,7 @@ margin:25px 0px 10px 30px;
   display: inline-block;
   text-align: left;
   background: #fff;
-  padding: 0px 16px 0px 30px;
+  padding: 0px 16px 10px 25px;
   width: 350px;
   position: relative;
   border-radius: 4px;
@@ -198,9 +199,11 @@ margin:25px 0px 10px 30px;
   display: inline-block;
   cursor: pointer;
   background: #eee;
-  padding: 8px 16px;
+  padding: 5px 16px;
   border-radius: 4px;
   margin-right: 8px;
+margin-top:0;
+margin-bottom:8px;
 }
 
 .file-input:hover > .filebutton {
@@ -212,4 +215,15 @@ margin:25px 0px 10px 30px;
   color: #333;
   white-space: nowrap;
   opacity: .3;
+}
+
+textarea{
+width: 85%;
+padding: 3px 0px 3px 15px;
+background: #fff;
+color: #666;
+border: 2px solid #ddd;
+border-radius: 4px;
+margin-left:25px;
+margin-bottom:20px;
 }
