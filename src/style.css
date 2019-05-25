@@ -219,7 +219,8 @@ margin-bottom:8px;
 
 textarea{
 width: 85%;
-padding: 3px 0px 3px 15px;
+height:15vh;
+padding: 10px 0px 3px 15px;
 background: #fff;
 color: #666;
 border: 2px solid #ddd;

@@ -12,12 +12,12 @@ export default class Historie extends Component {
                <h4>Ny hendelse:</h4>
             
                 <div className="text-input">
-                    <input type="text" name='name' className="friendsinput" placeholder="Overskrift"/>            
+                    <input type="text" name='name' className="friendsinput" placeholder="Hvilket år skjedde dette?"/>            
                 </div>
             
             <div className ="history-info">
             
-            <textarea placeholder="Masse kul informasjon om noe som skjedde her dette året.">
+            <textarea placeholder="Hva skjedde dette året?">
         
             </textarea>
             
@@ -29,8 +29,11 @@ export default class Historie extends Component {
             </div>
             
             
-       
+        
             </div>
+            
+           
+            
             
             
             

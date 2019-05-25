@@ -4,16 +4,13 @@ import '../../src/style.css';
 export default class Kontakt extends Component {
     render()   {
         return ( 
-            <div>
-
-    
             
-            <div className="placeholder"></div>
+            
+            <div className="placeholder">Skal vi egentlig ha noe her???</div>
             
             
             
-            
-            </div>
+          
         )   
     }
 }
