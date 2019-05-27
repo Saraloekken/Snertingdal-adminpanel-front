@@ -9,6 +9,8 @@ import Venner from '../pages/venner';
 import Booking from '../pages/booking';
 import Kontakt from '../pages/kontakt';
 import Events from '../pages/events';
+import Nyevent from '../pages/nyevent';
+import Podcasts from '../pages/podcasts';
 import Historie from '../pages/historie';
 
 
@@ -32,6 +34,7 @@ requireAuth(nextState, replace, next){
             <Switch>
                 <Route path="/login" exact component={Login} />
                 <Route path="/hjem" exact component={Hjem} onEnter={this.requireAuth} />
+                <Route path="/nyevent" exact component={Nyevent} onEnter={this.requireAuth} />
                 <Route path="/venner" exact component={Venner} onEnter={this.requireAuth} />
                 <Route path="/booking" exact component={Booking} onEnter={this.requireAuth} />
                 <Route path="/kontakt" exact component={Kontakt} onEnter={this.requireAuth} />

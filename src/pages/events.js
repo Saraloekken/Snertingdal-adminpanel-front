@@ -7,52 +7,35 @@ export default class Events extends Component {
             
             
             <div className="placeholder">
-            
-            <h4> Ny event: </h4>
-            
-             <div className="text-input">
-                    <input type="text" name='headline' className="friendsinput" placeholder="Hva heter eventet?"/>            
-                </div>
-            
-              <div className='file-input'>
+        
+            <h4>Hovedevent:</h4>   
+             
+          
+            <div className='file-input'>
                     <input type='file'/>
                     <span className='filebutton'>Velg</span>
-                    <span className='label' data-js-label>Bannerbilde</span>
+                    <span className='label' data-js-label>Banner</span>
                 </div>
             
+      
             <div className="text-input">
-                    <input type="date" name='headline' className="friendsinput" placeholder="11/11/11"/>            
+                    <input type="text" name='headline' className="friendsinput" placeholder="Overskrift"/>            
                 </div>
             
-                <div className="text-input">
-                    <input type="time" name='headline' className="friendsinput" placeholder="17:00"/>            
-                </div>
-       
-              <div className="text-input">
-                    <input type="text" name='headline' className="friendsinput" placeholder="Hvor skal eventet være?"/>            
+        
+            <div className="text-input">
+                    <input type="text" name='headline' className="friendsinput" placeholder="Undertittel"/>            
                 </div>
             
-               <div className ="history-info">
-            <textarea placeholder="Hva vil du fortelle om eventet ditt?">
-            </textarea>
-            
-            </div>
-            
-              <div className="text-input">
-                    <input type="text" name='headline' className="friendsinput" placeholder="Hvem skal holde eventet?"/>            
+           
+            <div className="text-input">
+                    <input type="text" name='headline' className="friendsinput" placeholder="<lim inn link til event her>"/>            
                 </div>
             
-               <div className ="history-info">
-            <textarea placeholder="Hva vil du fortelle om eventholder?">
-            </textarea>
-            </div>
             
-            <button type="button" className="addbutton" ><i class="fas fa-plus"></i> Legg til</button>           
+             <button type="button" className="addbutton"><i className="fas fa-sync-alt"></i> Oppdater</button>
             
-            
-            </div>
-            
-            
+           </div>
             
         )   
     }
