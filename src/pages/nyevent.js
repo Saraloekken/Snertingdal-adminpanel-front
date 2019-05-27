@@ -54,6 +54,9 @@ export default class Events extends Component {
             </textarea>
             </div>
             
+               <div className="text-input">
+                    <input type="text" name='eventholder' className="friendsinput" placeholder="<link til billettssalg>"/>            
+                </div>
             <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-plus"></i> Legg til</button>           
             
             
