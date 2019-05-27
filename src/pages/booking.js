@@ -19,7 +19,7 @@ export default class Booking extends Component {
                     <input type="text" name='headline' className="friendsinput" placeholder="Alternativt navn"/>            
                 </div>
             
-              <button type="button" className="addbutton" ><i class="fas fa-plus"></i> Legg til</button>           
+              <button type="button" className="addbutton" ><i className="fas fa-plus"></i> Legg til</button>           
             
         
             
