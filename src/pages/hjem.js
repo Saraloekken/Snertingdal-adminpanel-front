@@ -7,21 +7,21 @@ export default class Hjem extends Component {
        this.state= {
            headline:'',
            subtitle:'',
-            phoneno:'',
-           email:'',
-           address:'',
-           postalcode:'',
-           place:'',
+           banner:'',
+           bannerText:'Bannerbilde',
            
            status:null,
-           hjem:[],
+           hjem:[]
         }
    }
 
-    insert = (data) => {
+    insert = (data, banner ) => {
         var form = new FormData();
         
         form.append('insert', data);
+        form.append('banner', banner);
+        
+       
         fetch('http://folk.ntnu.no/saralok/snertingdal/pages/hjem/hjem-insert.php', {
         method: 'POST',  
         header: {},
@@ -51,11 +51,52 @@ export default class Hjem extends Component {
     }
         
     
+    handleSelectFile = (event) => {
+        this.setState({
+            [event.target.name]:event.target.files[0],
+            bannerText:event.target.files[0].name,
+        
+        });
+    }
+    
     
     submit = () => {
+        var banner = this.state.banner;
+        this.setState({banner:''});
+        
         var data = JSON.stringify(this.state);
-        this.insert(data);
+        this.insert(data, banner);
     }
+    
+    
+    
+    getData(){
+    fetch('http://folk.ntnu.no/saralok/snertingdal/pages/hjem/hjem-getdata.php')
+    .then((response) => response.json())
+    .then((responseJson)=>{
+            this.setState({
+                headline: responseJson.hjem[0].headline,
+                subtitle: responseJson.hjem[0].subtitle,
+                bannerText: responseJson.hjem[0].banner
+            });
+       
+        console.log(responseJson.hjem);
+        
+    })
+    .catch((error)=>{
+        console.error(error);
+        })
+}    
+    
+    componentDidMount(){
+        this.getData();
+}    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -84,37 +125,29 @@ export default class Hjem extends Component {
             
             
             <div className = "banner"> 
-               <h4>Banner:</h4>
+               <h4>Forside:</h4><br/>
             
+                   
+                   <h6>Forsidebilde:</h6>
                 <div className='file-input'>
-                    <input type='file'/>
+                    <input type='file' name='banner' onChange={this.handleSelectFile.bind(this)}/>
                     <span className='filebutton'>Velg</span>
-                    <span className='label' data-js-label>Bannerbilde</span>
+                    <span className='label' data-js-label>{this.state.bannerText}</span>
                 </div>
             
+
                 <div className="text-input">
-                    <input type="text" name='headline' className="friendsinput" placeholder="Headline" onChange={this.handleChange.bind(this)}/>            
-                    <input type="text" name='subtitle' className="friendsinput" placeholder="Subtitle" onChange={this.handleChange.bind(this)}/>
+                    <h6>Overskrift:</h6>
+                    <input type="text" name='headline' className="friendsinput" placeholder="Headline" value={this.state.headline} onChange={this.handleChange.bind(this)}/>    
+                    
+                    <h6>Undertittel:</h6>
+                    <input type="text" name='subtitle' className="friendsinput" placeholder="Subtitle" value={this.state.subtitle} onChange={this.handleChange.bind(this)}/>
                 </div>
             
                  <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt"></i> Oppdater</button> 
             
             </div>
-            
-            
-            <div className ="contact-info"><br/><br/>
-            <h4>Kontaktinfo:</h4>
-             <div className="text-input">
-                    <input type="text" name='phoneno' className="friendsinput" placeholder="Phoneno" onChange={this.handleChange.bind(this)}/>            
-                    <input type="text" name='email' className="friendsinput" placeholder="Email" onChange={this.handleChange.bind(this)}/>
-                  <input type="text" name='address' className="friendsinput" placeholder="Address" onChange={this.handleChange.bind(this)}/>
-             <input type="text" name='postalcode' className="friendsinput" placeholder="Postalcode" onChange={this.handleChange.bind(this)}/>
-             <input type="text" name='place' className="friendsinput" placeholder="Place" onChange={this.handleChange.bind(this)}/>
-                </div>
-            </div>
-            
-            <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt"></i> Oppdater</button>
-                   
+                                       
             
             </div>
         )   

@@ -85,23 +85,28 @@ export default class Events extends Component {
     render()   {
         return ( 
             
-            
+            <div className="everything">
             <div className="placeholder"> 
             
             
-            <h4> Ny event: </h4>
+            <h4> Ny event: </h4><br/>
             
+            
+            
+            <h6>Navn på event:</h6>
              <div className="text-input">
                     <input type="text" name='headline' className="friendsinput" placeholder="Hva heter eventet?" onChange={this.handleChange.bind(this)}/>            
                 </div>
             
-            
+            <h6>Kort beskrivelse av eventet: </h6>
  <div className ="history-info">
             <textarea name='short_description' placeholder="Kort om eventet" onChange={this.handleChange.bind(this)}>
             </textarea>
             
             </div>            
-            
+
+
+                <h6>Profilbilde:</h6>
               <div className='file-input'>
                     <input type='file' name='thumbnail' onChange={this.handleSelectFile.bind(this)}/>
                     <span className='filebutton'>Velg</span>
@@ -109,52 +114,132 @@ export default class Events extends Component {
                 </div>
             
             
-            
+                    <h6>Bannerbilde:</h6>
                     <div className='file-input'>
                     <input type='file' name='banner' onChange={this.handleSelectFile.bind(this)}/>
                     <span className='filebutton'>Velg</span>
                     <span className='label' data-js-label>Banner</span>
                 </div>
             
+
+<h6>Dato for eventet:</h6>
             <div className="text-input">
         
-                    <input type="date" name='dateday' className="date-input" placeholder="11/11/11" onChange={this.handleChange.bind(this)}/>            
+                    <input type="date" name='dateday' className="friendsinput" placeholder="11/11/11" onChange={this.handleChange.bind(this)}/>            
                 </div>
             
+<h6>Tid for eventet (fra-til):</h6>
                 <div className="text-input">
-            <label htmlFor='from-time'>fra:</label>
-                    <input type="time" name='from_time' className="time-input" placeholder="17:00" onChange={this.handleChange.bind(this)}/> 
-                <label htmlFor='to-time'>til:</label>
-                 <input type="time" name='to_time' className="time-input" placeholder="17:00" onChange={this.handleChange.bind(this)}/> 
+            
+                    <input type="time" name='from_time' className="friendsinput" placeholder="17:00" onChange={this.handleChange.bind(this)}/> 
+               
+                 <input type="time" name='to_time' className="friendsinput" placeholder="17:00" onChange={this.handleChange.bind(this)}/> 
                 </div>
-       
+
+<h6>Sted:</h6>
               <div className="text-input">
                     <input type="text" name='place' className="friendsinput" placeholder="Hvor skal eventet være?" onChange={this.handleChange.bind(this)}/>            
                 </div>
             
+<h6>Lang beskrivelse av eventet:</h6>
                <div className ="history-info">
             <textarea name='long_description' placeholder="Hva vil du fortelle om eventet ditt?" onChange={this.handleChange.bind(this)}>
             </textarea>
             
             </div>
             
+<h6>Hvem holder eventet:</h6>
               <div className="text-input">
                     <input type="text" name='holder_name' className="friendsinput" placeholder="Hvem skal holde eventet?" onChange={this.handleChange.bind(this)}/>            
                 </div>
-            
+            <h6>Om den som holder eventet:</h6>
                <div className ="history-info">
             <textarea name='holder_info'placeholder="Hva vil du fortelle om eventholder?" onChange={this.handleChange.bind(this)}>
             </textarea>
             </div>
             
+
+<h6>Link til billettsalg:</h6>
                <div className="text-input">
                     <input type="text" name='link' className="friendsinput" placeholder="<link til billettssalg>" onChange={this.handleChange.bind(this)}/>            
                 </div>
-            <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-plus"></i> Legg til</button>           
+            <button type="button" className="addbutton"><i className="fas fa-plus"></i> Legg til</button>           
             
             
             </div>
+
+<div className="placeholder2">
+    
+
+   <div className="element"> 
+    
+        <div className="element-left">
+        
             
+        </div>
+
+
+
+        <div className="element-right">
+            <div className ="edit"><i class="fal fa-pencil"></i></div>
+            <div className ="delete"><i class="fal fa-trash-alt"></i></div>
+           
+        </div>
+
+    </div>
+
+ <div className="element"> 
+    
+        <div className="element-left">
+        
+            
+        </div>
+
+
+
+        <div className="element-right">
+            <div className ="edit"><i class="fal fa-pencil"></i></div>
+            <div className ="delete"><i class="fal fa-trash-alt"></i></div>
+           
+        </div>
+
+    </div>
+
+ <div className="element"> 
+    
+        <div className="element-left">
+        
+            
+        </div>
+
+
+
+        <div className="element-right">
+            <div className ="edit"><i class="fal fa-pencil"></i></div>
+            <div className ="delete"><i class="fal fa-trash-alt"></i></div>
+           
+        </div>
+
+    </div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+            </div>
             
             
         )   
