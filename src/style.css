@@ -81,6 +81,9 @@ float:left;
 margin-top:0px;
 margin-left:25px;
 }
+.addbutton:hover{
+background:#147d91;
+}
 
 .navbar{
 text-align:center;
@@ -172,23 +175,26 @@ background-color:#dbdbdb;
 }
 .element {
 background-color:#eee;
-height:10%;
+height:10vh;
+min-height:75px;
 width:90%;
 border-radius:4px;
 margin-top:25px;
 margin-left:20px;
 line-height:30px;
 color: #4c4c4c;
-
+position:relative;
 }
 
 .element-right{
-    float:right;
+    position:absolute;
+    right:10px;
     font-size:20px;
-    padding-right:10px;
-    padding-top:5px;
+    top:50%;
+    margin-top:-30px;
     width:5%;
     color:#666666;
+    
     
 }
 
@@ -360,3 +366,41 @@ margin-bottom:20px;
 {
 background:#2A8B9D;
 }
+
+
+
+.select {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    padding: .6em 1.4em .5em .8em;
+    width: 90%;
+    height:39px;
+    max-width: 90%; 
+    margin-left:25px;
+    margin-bottom:20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    appearance: none;
+    background-color: #fff;
+}
+
+
+
+.select::-ms-expand {
+    display: none;
+}
+.select:hover {
+    border-color: #888;
+}
+.select:focus {
+    border-color: #aaa;
+  
+    
+    outline: none;
+}
+.select option {
+    font-weight:normal;
+}
+
+

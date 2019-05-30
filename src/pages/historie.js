@@ -39,7 +39,7 @@ export default class Histore extends Component {
                 
                 this.setState({status:true})
                 
-              console.log('success');
+              this.getData();
            }
           
         })
@@ -93,13 +93,13 @@ export default class Histore extends Component {
             <h6>Overskrift:</h6>
 
               <div className="text-input">
-                    <input type="text" name='year' className="friendsinput" placeholder="Overskrift" onChange={this.handleChange.bind(this)}/>            
+                    <input type="text" name='headline' className="friendsinput" placeholder="Overskrift" onChange={this.handleChange.bind(this)}/>            
                 </div>
             
             
             <h6>Undertittel:</h6>
                 <div className="text-input">
-                    <input type="text" name='year' className="friendsinput" placeholder="Undertittel" onChange={this.handleChange.bind(this)}/>            
+                    <input type="text" name='subtitle' className="friendsinput" placeholder="Undertittel" onChange={this.handleChange.bind(this)}/>            
                 </div>
             
             
@@ -109,11 +109,11 @@ export default class Histore extends Component {
             
             <h6>Årstall (fra-til):</h6>
                 <div className="text-input">
-                    <input type="text" name='year' className="friendsinput" placeholder="Fra" onChange={this.handleChange.bind(this)}/>            
+                    <input type="year" name='yearFrom' className="friendsinput" placeholder="Fra" onChange={this.handleChange.bind(this)}/>            
                 </div>
         
                             <div className="text-input">
-                    <input type="text" name='year' className="friendsinput" placeholder="Til" onChange={this.handleChange.bind(this)}/>            
+                    <input type="text" name='yearTo' className="friendsinput" placeholder="Til" onChange={this.handleChange.bind(this)}/>            
                 </div>
             
 <h6>Hendelse:</h6>
@@ -140,7 +140,7 @@ export default class Histore extends Component {
     
     
     {this.state.historie.map(item => (
-    <div className="element" key={item.id}>
+    <div key={item.id} className="element">
         
         
         <div className="element-left">
@@ -157,7 +157,7 @@ export default class Histore extends Component {
    
     </div>
 
-))}
+    ))}
 
 
 

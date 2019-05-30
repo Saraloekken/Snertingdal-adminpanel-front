@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../src/style.css';
 
-export default class Booking extends Component {
+export default class Galleri extends Component {
     render()   {
         return ( 
 

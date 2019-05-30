@@ -81,6 +81,29 @@ export default class Events extends Component {
     }
     
         
+    
+     getData() {
+    fetch(
+      "http://folk.ntnu.no/saralok/snertingdal/pages/nyevent/nyevent-getdata.php"
+    )
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({
+          nyevent: responseJson.nyevent
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  componentDidMount() {
+    this.getData();
+  }
+    
+        
+    
+    
   
     render()   {
         return ( 
@@ -171,7 +194,28 @@ export default class Events extends Component {
 <div className="placeholder2">
     
 
-   <div className="element"> 
+    {this.state.nyevent.map(item => (
+    <div className="element" key={item.id}> 
+    
+        <div className="element-left">
+        <h5>{item.headline}</h5>
+        <p className="overskrift">{item.place}</p>
+        <p className="undertittel">{item.date}</p>
+            
+        </div>
+
+
+
+        <div className="element-right">
+            <div className ="edit"><i className="fal fa-pencil"></i></div>
+            <div className ="delete"><i className="fal fa-trash-alt"></i></div>
+           
+        </div>
+
+    </div>
+))}
+
+ <div className="element"> 
     
         <div className="element-left">
         
@@ -181,8 +225,8 @@ export default class Events extends Component {
 
 
         <div className="element-right">
-            <div className ="edit"><i class="fal fa-pencil"></i></div>
-            <div className ="delete"><i class="fal fa-trash-alt"></i></div>
+            <div className ="edit"><i className="fal fa-pencil"></i></div>
+            <div className ="delete"><i className="fal fa-trash-alt"></i></div>
            
         </div>
 
@@ -198,25 +242,8 @@ export default class Events extends Component {
 
 
         <div className="element-right">
-            <div className ="edit"><i class="fal fa-pencil"></i></div>
-            <div className ="delete"><i class="fal fa-trash-alt"></i></div>
-           
-        </div>
-
-    </div>
-
- <div className="element"> 
-    
-        <div className="element-left">
-        
-            
-        </div>
-
-
-
-        <div className="element-right">
-            <div className ="edit"><i class="fal fa-pencil"></i></div>
-            <div className ="delete"><i class="fal fa-trash-alt"></i></div>
+            <div className ="edit"><i className="fal fa-pencil"></i></div>
+            <div className ="delete"><i className="fal fa-trash-alt"></i></div>
            
         </div>
 

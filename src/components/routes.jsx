@@ -6,7 +6,7 @@ import { Component } from 'react';
 import Login from '../pages/login';
 import Hjem from '../pages/hjem';
 import Venner from '../pages/venner';
-import Booking from '../pages/booking';
+import Galleri from '../pages/galleri';
 import Kontaktinfo from '../pages/kontaktinfo';
 import Events from '../pages/events';
 import Nyevent from '../pages/nyevent';
@@ -36,7 +36,7 @@ requireAuth(nextState, replace, next){
                 <Route path="/hjem" exact component={Hjem} onEnter={this.requireAuth} />
                 <Route path="/nyevent" exact component={Nyevent} onEnter={this.requireAuth} />
                 <Route path="/venner" exact component={Venner} onEnter={this.requireAuth} />
-                <Route path="/booking" exact component={Booking} onEnter={this.requireAuth} />
+                <Route path="/galleri" exact component={Galleri} onEnter={this.requireAuth} />
                 <Route path="/kontaktinfo" exact component={Kontaktinfo} onEnter={this.requireAuth} />
                 <Route path="/events" exact component={Events} onEnter={this.requireAuth} />  
                    <Route path="/podcasts" exact component={Podcasts} onEnter={this.requireAuth} />  
