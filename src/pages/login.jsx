@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 export default class Login extends Component { 
     constructor(props){
@@ -33,7 +34,8 @@ export default class Login extends Component {
                 this.setState({error: true})
             }
             if(response.success === true){   //ja
-              
+                var cookies = new Cookies();
+                cookies.set('loginToken', response.token, {path: '/'});
                 localStorage.setItem('auth', response.authentication)
                 this.setState({redirect: true})
            }

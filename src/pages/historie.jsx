@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../src/style.css';
+import Authentication from '../components/authentication';
 
 export default class Histore extends Component {
    constructor(){
@@ -92,6 +93,7 @@ export default class Histore extends Component {
         return ( 
             
             <div className="everything">
+                <Authentication/>
             <div className="placeholder">
             
             

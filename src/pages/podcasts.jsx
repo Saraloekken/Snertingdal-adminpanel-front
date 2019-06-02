@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../src/style.css';
 import Moment from 'react-moment';
+import Authentication from '../components/authentication';
 
 export default class Podcasts extends Component {
     constructor(){
@@ -108,7 +109,7 @@ export default class Podcasts extends Component {
     render()   {
         return ( 
             <div className="everything">
-            
+            <Authentication/>
             <div className="placeholder">
             <h4>Ny podcast:</h4><br/>
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../../src/style.css';
 import Moment from 'react-moment';
+import Authentication from '../components/authentication';
 
 
 export default class Events extends Component {
@@ -116,6 +117,7 @@ export default class Events extends Component {
         return (
 
             <div className="everything">
+                <Authentication/>
                 <div className="placeholder">
                     <h4> Ny event: </h4><br/>
 
@@ -201,7 +203,7 @@ export default class Events extends Component {
                         <div className="element-left">
                         <h5>{item.headline}</h5>
                         <p className="overskrift"><Moment date={item.dateday} format='DD/MM/YYYY'/></p>
-                        <p className="undertittel">Kl. <Moment time={item.from_time} format='HH mm'/></p>
+                        <p className="undertittel">Kl.<Moment date={item.dateday + ' ' + item.from_time} format='HH:mm'/></p>
                             
                             </div>
 

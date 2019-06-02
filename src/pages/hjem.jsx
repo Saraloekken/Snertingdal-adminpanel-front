@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../src/style.css';
+import Authentication from '../components/authentication';
 
 export default class Hjem extends Component {
     constructor(){
@@ -98,7 +99,8 @@ export default class Hjem extends Component {
         return ( 
             
             
-
+<div className="Everything">
+    <Authentication/>
     <div className="placeholder">
             
                       {
@@ -148,7 +150,7 @@ export default class Hjem extends Component {
             
             </div>
                                        
-            
+    </div>
             </div>
         )   
     }

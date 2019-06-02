@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../src/style.css';
+import Authentication from '../components/authentication';
 
 export default class Kontakt extends Component {
     constructor(){
@@ -92,6 +93,8 @@ export default class Kontakt extends Component {
     
 render(){
     return ( 
+        <div className="everything">
+            <Authentication/>
             <div className="placeholder">
             
             <h4>Kontaktinfo:</h4><br/>
@@ -121,7 +124,7 @@ render(){
                      <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt"></i> Oppdater</button>     
                         
                     </div>
-            
+            </div>
           </div>
         )   
     }

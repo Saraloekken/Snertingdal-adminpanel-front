@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import '../../src/style.css';
+import Authentication from '../components/authentication';
 
 export default class Venner extends Component {
    constructor(){
        super();
        this.state= {
            headline:'',
+           thumbnail:'',
+           banner:'',
            info:'',
            address:'',
            postalcode:'',
@@ -16,17 +19,22 @@ export default class Venner extends Component {
            instagram:'',   
            facebook:'',
            
-           
+            thumbnailText: 'Thumbnail',
+            bannerText: 'Banner',
            
            status:null,
            venner:[],
         }
    }
 
-    insert = (data) => {
+    insert = (data,thumbnail,banner) => {
         var form = new FormData();
         
         form.append('insert', data);
+        form.append('thumbnail', thumbnail);
+        form.append('banner', banner);
+        
+        
         fetch('http://folk.ntnu.no/saralok/snertingdal/pages/venner/venner-insert.php', {
         method: 'POST',  
         header: {},
@@ -55,76 +63,94 @@ export default class Venner extends Component {
         this.setState({[event.target.name]: event.target.value});
     }
         
-    
-    
-    submit = () => {
-        var data = JSON.stringify(this.state);
-        this.insert(data);
+    handleSelectFile(event) {
+        this.setState({
+            [event.target.name]: event.target.files[0],
+            [event.target.name + 'Text']: event.target.files[0].name,
+        });
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    submit = () => {
+        
+        var thumbnail = this.state.thumbnail;
+        var banner = this.state.banner;
+
+        this.setState({thumbnail: '', banner: ''});
+        var data = JSON.stringify(this.state);
+        this.insert(data, thumbnail, banner);
+    }
     
     
     render()   {
         return ( 
             <div>
-
+<div className="everything">
+    <Authentication/>
             <div className="placeholder">
                 
                 <h4>Legg til ny venn:</h4><br/>
                 <div className="text-input">
                     
                     <h6>Overskrift:</h6>
-                    <input type="text" name='headline' className="friendsinput" placeholder="Hva heter vennen din?" value={this.state.headline} onChange={this.handleChange.bind(this)}/>            
+                    <input type="text" name='headline' className="friendsinput" placeholder="Hva heter vennen din?" value={this.state.headline} onChange={this.handleChange.bind(this)}/>     
+                    
+                    <h6>Profilbilde:</h6>
+                    <div className='file-input'>
+                    <input type='file' name='thumbnail' onChange={this.handleSelectFile.bind(this)}/>
+                    <span className='filebutton'>Velg</span>
+                    <span className='label'>{this.state.thumbnailText}</span>
+                    </div>
+                    
+                    <h6>Bannerbilde:</h6>
+                    <div className='file-input'>
+                    <input type='file' name='banner' onChange={this.handleSelectFile.bind(this)}/>
+                    <span className='filebutton'>Velg</span>
+                    <span className='label'>{this.state.bannerText}</span>
+                    </div>
                     
                     <h6>Info:</h6>    
-                    <input type="text" name='info' className="friendsinput" placeholder="Hva vil du fortelle om vennen din?" value={this.state.info} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='info' className="friendsinput" placeholder="Hva vil du fortelle om vennen din?"  onChange={this.handleChange.bind(this)}/>
                     
                     <h6>Gateaddresse:</h6>
-                    <input type="text" name='address' className="friendsinput" placeholder="Hvor holder vennen din til?" value={this.state.address} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='address' className="friendsinput" placeholder="Hvor holder vennen din til?"  onChange={this.handleChange.bind(this)}/>
                         
                     <h6>Postnummer:</h6>
-                    <input type="text" name='postalcode' className="friendsinput" placeholder="0000" value={this.state.postalcode} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='postalcode' className="friendsinput" placeholder="0000"  onChange={this.handleChange.bind(this)}/>
                         
                     <h6>Sted</h6>
-                    <input type="text" name='place' className="friendsinput" placeholder="Place" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='place' className="friendsinput" placeholder="Place"  onChange={this.handleChange.bind(this)}/>
                     
                     <h6>Nettside:</h6>
-                    <input type="text" name='homepage' className="friendsinput" placeholder="http://www.example.no" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='homepage' className="friendsinput" placeholder="http://www.example.no"  onChange={this.handleChange.bind(this)}/>
                     
                     <h6>Telefonnummer:</h6>
-                    <input type="text" name='phoneno' className="friendsinput" placeholder="+47 00 00 00 00" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='phoneno' className="friendsinput" placeholder="+47 00 00 00 00"  onChange={this.handleChange.bind(this)}/>
                     
                     <h6>E-post:</h6>
-                    <input type="text" name='email' className="friendsinput" placeholder="example@gmail.com" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='email' className="friendsinput" placeholder="example@gmail.com" onChange={this.handleChange.bind(this)}/>
                     
                     <h6>Instagram:</h6>
-                    <input type="text" name='instagram' className="friendsinput" placeholder="Link til instagram" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='instagram' className="friendsinput" placeholder="Link til instagram"  onChange={this.handleChange.bind(this)}/>
                     
                     <h6>Facebook:</h6>
-                    <input type="text" name='facebook' className="friendsinput" placeholder="Link til facebook" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name='facebook' className="friendsinput" placeholder="Link til facebook"  onChange={this.handleChange.bind(this)}/>
                   
                 
                     <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt"></i> Oppdater</button>     
                                     
                 </div>
-            
+                
             </div>
             
+                <div className="placeholder2">
+                
+                <div className="element"></div>
+                
+                
+                </div>
+                
+                </div>
             </div>
         )   
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../src/style.css';
+import Authentication from '../components/authentication';
 
 export default class Events extends Component {
     constructor(){
@@ -117,6 +118,8 @@ getData(){
         
         return ( 
             
+            <div className ="everything">
+            <Authentication/>
             
             <div className="placeholder">
         
@@ -165,6 +168,7 @@ getData(){
                 
                 <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt" ></i> Oppdater</button>
             </div>  
+                </div>
         )   
     }
 }
