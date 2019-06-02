@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../../src/style.css';
+import Moment from 'react-moment';
 
 
 export default class Events extends Component {
@@ -199,8 +200,8 @@ export default class Events extends Component {
                     
                         <div className="element-left">
                         <h5>{item.headline}</h5>
-                        <p className="overskrift">{item.dateday}</p>
-                        <p className="undertittel">{item.from_time}</p>
+                        <p className="overskrift"><Moment date={item.dateday} format='DD/MM/YYYY'/></p>
+                        <p className="undertittel">Kl. <Moment time={item.from_time} format='HH mm'/></p>
                             
                             </div>
 
