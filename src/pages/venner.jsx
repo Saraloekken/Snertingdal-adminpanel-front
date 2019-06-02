@@ -5,8 +5,19 @@ export default class Venner extends Component {
    constructor(){
        super();
        this.state= {
-           name:'',
-           about:'',
+           headline:'',
+           info:'',
+           address:'',
+           postalcode:'',
+           place:'',
+           homepage:'',
+           phoneno:'',
+           email:'',
+           instagram:'',   
+           facebook:'',
+           
+           
+           
            status:null,
            venner:[],
         }
@@ -73,41 +84,44 @@ export default class Venner extends Component {
             <div>
 
             <div className="placeholder">
-            
-            {
-                this.state.status === true
-                ?(
-                    <h1>Success</h1>
-                ) : (null)
-            }
-            {
-                this.state.status === false
-                ? (
-                    <h1>Error</h1>
-                ) : (null)
-            }
-            
-            <h4>Navn på venn:</h4>
-                <div className="title">
-                    <input type="text" name='name' className="friendsinput" placeholder="Hva heter vennen din?" onChange={this.handleChange.bind(this)}/>
+                
+                <h4>Legg til ny venn:</h4><br/>
+                <div className="text-input">
+                    
+                    <h6>Overskrift:</h6>
+                    <input type="text" name='headline' className="friendsinput" placeholder="Hva heter vennen din?" value={this.state.headline} onChange={this.handleChange.bind(this)}/>            
+                    
+                    <h6>Info:</h6>    
+                    <input type="text" name='info' className="friendsinput" placeholder="Hva vil du fortelle om vennen din?" value={this.state.info} onChange={this.handleChange.bind(this)}/>
+                    
+                    <h6>Gateaddresse:</h6>
+                    <input type="text" name='address' className="friendsinput" placeholder="Hvor holder vennen din til?" value={this.state.address} onChange={this.handleChange.bind(this)}/>
+                        
+                    <h6>Postnummer:</h6>
+                    <input type="text" name='postalcode' className="friendsinput" placeholder="0000" value={this.state.postalcode} onChange={this.handleChange.bind(this)}/>
+                        
+                    <h6>Sted</h6>
+                    <input type="text" name='place' className="friendsinput" placeholder="Place" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    
+                    <h6>Nettside:</h6>
+                    <input type="text" name='homepage' className="friendsinput" placeholder="http://www.example.no" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    
+                    <h6>Telefonnummer:</h6>
+                    <input type="text" name='phoneno' className="friendsinput" placeholder="+47 00 00 00 00" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    
+                    <h6>E-post:</h6>
+                    <input type="text" name='email' className="friendsinput" placeholder="example@gmail.com" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    
+                    <h6>Instagram:</h6>
+                    <input type="text" name='instagram' className="friendsinput" placeholder="Link til instagram" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                    
+                    <h6>Facebook:</h6>
+                    <input type="text" name='facebook' className="friendsinput" placeholder="Link til facebook" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                  
+                
+                    <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt"></i> Oppdater</button>     
+                                    
                 </div>
-            
-            
-            <h4>Profilbilde:</h4>           
-                <div className='file-input'>
-                    <input type='file'/>
-                    <span className='filebutton'>Velg</span>
-                    <span className='label' data-js-label>Ingen fil er valgt</span>
-                </div>
-             
-            
-            <h4>Informasjon:</h4>
-                <div className="information">
-                    <input type="text" name='about' className="infoinput" placeholder="Hva vil du fortelle om vennen din? (max 300 ord)" onChange={this.handleChange.bind(this)}/>
-                </div>
-            
-            <button type="button" className="addbutton" 
-            onClick={this.submit}>Legg til ny</button>  
             
             </div>
             
