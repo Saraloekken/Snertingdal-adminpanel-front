@@ -20,8 +20,6 @@ class Navbar extends Component {
             
             <li><NavLink exact to ="/historie" activeClassName = "activeStyle"><i className="fas fa-history"></i> Historie</NavLink></li>     
             
-            <li><NavLink exact to ="/booking" activeClassName = "activeStyle" className="underbar">- Galleri</NavLink></li>
-            
             <li><NavLink exact to ="/venner" activeClassName = "activeStyle"><i className="fas fa-user-friends"></i> Våre venner</NavLink></li>
             
             <li><NavLink exact to ="/login" activeClassName = "activeStyle"><i className="fas fa-sign-out-alt"></i> Logg ut</NavLink></li>

@@ -2,63 +2,65 @@ import React, { Component } from 'react';
 import '../../src/style.css';
 
 export default class Hjem extends Component {
-       constructor(){
-       super();
-       this.state= {
+    constructor(){
+        super();
+        this.state= {
            headline:'',
            subtitle:'',
            banner:'',
            bannerText:'Bannerbilde',
            
            status:null,
-           hjem:[]
+           hjem:[],
+            messages:[],
         }
-   }
+    }
 
     insert = (data, banner ) => {
         var form = new FormData();
         
         form.append('insert', data);
         form.append('banner', banner);
-        
-       
+         
         fetch('http://folk.ntnu.no/saralok/snertingdal/pages/hjem/hjem-insert.php', {
         method: 'POST',  
         header: {},
         body: form,
         })
 
-    .then(res => res.json())
-    .then(response => {
+        .then(res => res.json())
+        .then(response => {
             
             if(response.status === false){   //nei
-            
                 this.setState({status:false})
-                
-                console.log('error');
+               
+                this.setState({
+                    status: false,
+                    messages: response.messages,
+                });
             }
+            
             if(response.status === true){   //ja
-                
-                this.setState({status:true})
-                
-              console.log('success');
-           }
+                this.setState({status:true})    
+                this.setState({
+                    status: false,
+                    messages: [],
+                });
+            }
           
         })
     }
+    
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
     }
         
-    
     handleSelectFile = (event) => {
         this.setState({
             [event.target.name]:event.target.files[0],
-            bannerText:event.target.files[0].name,
-        
+            bannerText:event.target.files[0].name,    
         });
     }
-    
     
     submit = () => {
         var banner = this.state.banner;
@@ -71,40 +73,31 @@ export default class Hjem extends Component {
     
     
     getData(){
-    fetch('http://folk.ntnu.no/saralok/snertingdal/pages/hjem/hjem-getdata.php')
-    .then((response) => response.json())
-    .then((responseJson)=>{
+        fetch('http://folk.ntnu.no/saralok/snertingdal/pages/hjem/hjem-getdata.php')
+        .then((response) => response.json())
+        .then((responseJson)=>{
             this.setState({
                 headline: responseJson.hjem[0].headline,
                 subtitle: responseJson.hjem[0].subtitle,
                 bannerText: responseJson.hjem[0].banner
-            });
-       
-        console.log(responseJson.hjem);
-        
-    })
-    .catch((error)=>{
-        console.error(error);
+            });   
+            console.log(responseJson.hjem);        
         })
-}    
+    
+        .catch((error)=>{
+            console.error(error);
+        })
+    }    
     
     componentDidMount(){
         this.getData();
-}    
+    }    
     
-    
-    
-    
-    
-    
-    
-    
-    
+        
     render()   {
         return ( 
             
             
-
 
     <div className="placeholder">
             
@@ -144,6 +137,13 @@ export default class Hjem extends Component {
                     <input type="text" name='subtitle' className="friendsinput" placeholder="Subtitle" value={this.state.subtitle} onChange={this.handleChange.bind(this)}/>
                 </div>
             
+
+  <div className='errormsg'>
+                        {this.state.messages.map((message, i) => (
+                            <p key={i}>{message}</p>
+                       ))}
+                    </div>
+
                  <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt"></i> Oppdater</button> 
             
             </div>
@@ -153,3 +153,9 @@ export default class Hjem extends Component {
         )   
     }
 }
+
+/**
+ * Find the postalCode position in the list, and returns the name of the city if it is there. 
+ * @param {string} postalCode - Postal Code from inputfield.  
+ * @return {Promise} - Promise object representing the city name. 
+ */

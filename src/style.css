@@ -403,4 +403,13 @@ background:#2A8B9D;
     font-weight:normal;
 }
 
+.errormsg{
+width:85%;
+padding: 10px 0px 10px 15px;
+background-color:#ea4444;
+color:white;
+border-radius:4px;
+margin-left:25px;
+margin-bottom:20px;
+}
 

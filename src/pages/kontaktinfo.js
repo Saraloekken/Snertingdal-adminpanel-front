@@ -14,6 +14,7 @@ export default class Kontakt extends Component {
     
            status:null,
            kontaktinfo:[],
+           messages:[],
         }
    }
     
@@ -34,13 +35,19 @@ export default class Kontakt extends Component {
             
                 this.setState({status:false})
                 
-                console.log('error');
+                 this.setState({
+                    status: false,
+                    messages: response.messages,
+                });
             }
             if(response.status === true){   //ja
                 
                 this.setState({status:true})
                 
-              console.log('success');
+              this.setState({
+                    status: false,
+                    messages: [],
+                });
            }
           
         })
@@ -86,18 +93,6 @@ export default class Kontakt extends Component {
 render(){
     return ( 
             <div className="placeholder">
-                         {
-                this.state.status === true
-                ?(
-                    <h1>Success</h1>
-                ) : (null)
-            }
-            {
-                this.state.status === false
-                ? (
-                    <h1>Error</h1>
-                ) : (null)
-            }
             
             <h4>Kontaktinfo:</h4><br/>
                 <div className="text-input">
@@ -116,6 +111,12 @@ render(){
                         
                     <h6>Sted</h6>
                     <input type="text" name='place' className="friendsinput" placeholder="Place" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                        
+                    <div className='errormsg'>
+                        {this.state.messages.map((message, i) => (
+                            <p key={i}>{message}</p>
+                       ))}
+                    </div>    
                 
                      <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt"></i> Oppdater</button>     
                         

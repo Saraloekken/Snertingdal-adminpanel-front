@@ -13,6 +13,7 @@ export default class Events extends Component {
             link:'',
            
             events: [],
+            messages:[],
             status:null,
         }
     }
@@ -26,9 +27,9 @@ export default class Events extends Component {
         
        
         fetch('http://folk.ntnu.no/saralok/snertingdal/pages/events/mainevent-insert.php', {
-        method: 'POST',  
-        header: {},
-        body: form,
+            method: 'POST',  
+            header: {},
+            body: form,
         })
 
     .then(res => res.json())
@@ -36,13 +37,19 @@ export default class Events extends Component {
             
             if(response.status === false){   //nei
             
-                this.setState({status:false})
+                this.setState({
+                    status: false,
+                    messages: response.messages,
+                });
                 
                 console.log('error');
             }
             if(response.status === true){   //ja
                 
-                this.setState({status:true})
+                this.setState({
+                    status: true,
+                    messages: [],
+                });
                 
               console.log('success');
            }
@@ -107,6 +114,7 @@ getData(){
             
     
     render()   {
+        
         return ( 
             
             
@@ -148,9 +156,13 @@ getData(){
                 </div>
 
 
+                  <div className='errormsg'>
+                        {this.state.messages.map((message, i) => (
+                            <p key={i}>{message}</p>
+                       ))}
+                    </div>
 
-
-
+                
                 <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-sync-alt" ></i> Oppdater</button>
             </div>  
         )   

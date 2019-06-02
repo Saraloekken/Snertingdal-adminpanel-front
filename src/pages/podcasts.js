@@ -5,15 +5,25 @@ export default class Podcasts extends Component {
     constructor(){
        super();
        this.state= {
+           dateday:'',
+           videolink:'',
+           about:'',
+           headline:'',
+           thumbnail:'',
+           thumbnailText:'Thumbnail',
            status:null,
+
            podcasts:[],
+           messages:[],
         }
    }
 
-    insert = (data) => {
+    insert = (data, thumbnail) => {
         var form = new FormData();
         
         form.append('insert', data);
+        form.append('thumbnail', thumbnail);
+        
         fetch('http://folk.ntnu.no/saralok/snertingdal/pages/podcasts/podcasts-insert.php', {
         method: 'POST',  
         header: {},
@@ -27,26 +37,50 @@ export default class Podcasts extends Component {
             
                 this.setState({status:false})
                 
-                console.log('error');
+                this.setState({
+                    status: false,
+                    messages: response.messages,
+                });
+                
             }
             if(response.status === true){   //ja
                 
                 this.setState({status:true})
                 
-              console.log('success');
+                   this.setState({
+                    status: false,
+                    messages: [],
+                });
+
+                
+                
+              this.getData();
            }
           
         })
     }
-    handleChange = (event) => {
-        this.setState({[event.target.name]: event.target.value});
+    
+    handleChange = (podcasts) => {
+        this.setState({[podcasts.target.name]: podcasts.target.value});
+    }
+    
+    
+     handleSelectFile = (podcasts) => {
+        this.setState({
+            [podcasts.target.name]:podcasts.target.files[0],
+            thumbnailText:podcasts.target.files[0].thumbnail,
+        
+        });
     }
         
     
     
     submit = () => {
+        var thumbnail = this.state.thumbnail;
+        this.setState({thumbnail:''});
+        
         var data = JSON.stringify(this.state);
-        this.insert(data);
+        this.insert(data, thumbnail);
     }
     
     getData(){
@@ -76,6 +110,14 @@ export default class Podcasts extends Component {
             
             <div className="placeholder">
             <h4>Ny podcast:</h4><br/>
+
+            <div className='file-input'>
+                    <input type='file' name='thumbnail' onChange={this.handleSelectFile.bind(this)}/>
+                    <span className='filebutton'>Velg</span>
+                    <span className='label' data-js-label>{this.state.thumbnailText}</span>
+            </div>
+            
+            
             
             <h6>Overskrift:</h6>
             <input type="text" name='headline' className="friendsinput" placeholder="Overskrift" onChange={this.handleChange.bind(this)}/>
@@ -86,9 +128,18 @@ export default class Podcasts extends Component {
             <h6>Videolink:</h6>
             <input type="text" name='videolink' className="friendsinput" placeholder="Embed-link fra Youtube" onChange={this.handleChange.bind(this)}/>
             
+                
             <h6>Kort om eventet:</h6>
             <textarea name='about'placeholder="Hva skjedde denne dagen?" onChange={this.handleChange.bind(this)}>
             </textarea>
+
+
+
+                    <div className='errormsg'>
+                        {this.state.messages.map((message, i) => (
+                            <p key={i}>{message}</p>
+                       ))}
+                    </div>
             
             <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-plus"></i> Legg til</button>
           
@@ -125,8 +176,6 @@ export default class Podcasts extends Component {
 
 </div>
             
-            
-          
         )   
     }
 }

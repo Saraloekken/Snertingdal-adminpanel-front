@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../../src/style.css';
 
+
 export default class Events extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +22,8 @@ export default class Events extends Component {
             thumbnailText: 'Thumbnail',
             bannerText: 'Banner',
             status: null,
-            nyevent: []
+            messages: [],
+            events: []
         }
     }
 
@@ -43,11 +45,21 @@ export default class Events extends Component {
             if (response.status === false) {   //nei
                 this.setState({status: false});
 
+                this.setState({
+                    status: false,
+                    messages: response.messages,
+                });
+                
                 console.log('error');
             }
 
             if (response.status === true) {   //ja
                 this.setState({status: true});
+                
+                this.setState({
+                    status: false,
+                    messages: [],
+                });
 
                 console.log('success');
             }
@@ -76,6 +88,26 @@ export default class Events extends Component {
         var data = JSON.stringify(this.state);
 
         this.insert(data, thumbnail, banner);
+    }
+    
+    
+      getData(){
+        fetch('http://folk.ntnu.no/saralok/snertingdal/pages/events/events-getdata.php')
+        .then((response) => response.json())
+        .then((responseJson)=>{
+            this.setState({
+                events: responseJson.events,
+            });   
+            console.log(responseJson.events);        
+        })
+    
+        .catch((error)=>{
+            console.error(error);
+        })
+    }
+    
+    componentDidMount(){
+        this.getData();
     }
 
 
@@ -125,7 +157,7 @@ export default class Events extends Component {
 
                     <h6>Sted:</h6>
                     <div className="text-input">
-                        <input type="text" name='place' className="friendsinput" placeholder="Hvor skal eventet være?" value={this.state.place} onChange={this.handleChange.bind(this)}/>
+                        <input type="text" name='place' className="friendsinput" placeholder='Hvor skal eventet være?' value={this.state.place} onChange={this.handleChange.bind(this)}/>
                     </div>
 
                     <h6>Lang beskrivelse av eventet:</h6>
@@ -146,20 +178,38 @@ export default class Events extends Component {
                     <div className="text-input">
                         <input type="text" name='link' className="friendsinput" placeholder="<link til billettssalg>" value={this.state.link} onChange={this.handleChange.bind(this)}/>
                     </div>
+
+
+                    <div className='errormsg'>
+                        {this.state.messages.map((message, i) => (
+                            <p key={i}>{message}</p>
+                       ))}
+                    </div>
+
                     <button type="button" className="addbutton" onClick={this.submit.bind(this)}><i className="fas fa-plus"/> Legg til</button>
 
                 </div>
 
                 <div className="placeholder2">
-                    <div className="element">
+                   
+                    
+                    {this.state.events.map(item => (
+                    <div key={item.id} className="element">
+                    
+                    
                         <div className="element-left">
-                        </div>
+                        <h5>{item.headline}</h5>
+                        <p className="overskrift">{item.dateday}</p>
+                        <p className="undertittel">{item.from_time}</p>
+                            
+                            </div>
 
-                        <div className="element-right">
+                            <div className="element-right">
                             <div className="edit"><i className="fal fa-pencil"/></div>
                             <div className="delete"><i className="fal fa-trash-alt"/></div>
                         </div>
                     </div>
+))}
                 </div>
 
             </div>

@@ -13,6 +13,7 @@ export default class Histore extends Component {
            
            status:null,
            historie:[],
+           messages:[],
         }
    }
 
@@ -31,13 +32,22 @@ export default class Histore extends Component {
             
             if(response.status === false){   //nei
             
-                this.setState({status:false})
+                this.setState({status:false});
                 
-                console.log('error');
+                 this.setState({
+                    status: false,
+                    messages: response.messages,
+                     });
             }
             if(response.status === true){   //ja
                 
                 this.setState({status:true})
+                
+                  this.setState({
+                    status: false,
+                    messages: [],
+                });
+                
                 
               this.getData();
            }
@@ -125,7 +135,15 @@ export default class Histore extends Component {
             
             </div>
             
-    
+
+
+                    <div className='errormsg'>
+                        {this.state.messages.map((message, i) => (
+                            <p key={i}>{message}</p>
+                       ))}
+                    </div>
+
+
                  <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-plus"></i> Legg til</button> 
             
             </div>
