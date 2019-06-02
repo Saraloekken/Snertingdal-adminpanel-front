@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../src/style.css';
+import Moment from 'react-moment';
 
 export default class Podcasts extends Component {
     constructor(){
@@ -136,6 +137,8 @@ export default class Podcasts extends Component {
 
 
                     <div className='errormsg'>
+                
+                        
                         {this.state.messages.map((message, i) => (
                             <p key={i}>{message}</p>
                        ))}
@@ -154,7 +157,7 @@ export default class Podcasts extends Component {
         <div className="element-left">
         
         <h5>{item.headline}</h5>
-        <p className="overskrift">{item.dateday}</p>
+        <p className="overskrift"><Moment date={item.dateday} format='DD/MM/YYYY'/></p>
         
         </div>
         
