@@ -135,14 +135,15 @@ export default class Podcasts extends Component {
             </textarea>
 
 
-
                     <div className='errormsg'>
-                
-                        
                         {this.state.messages.map((message, i) => (
                             <p key={i}>{message}</p>
                        ))}
                     </div>
+                
+                
+ 
+                
             
             <button type="button" className="addbutton" onClick={this.submit}><i className="fas fa-plus"></i> Legg til</button>
           
