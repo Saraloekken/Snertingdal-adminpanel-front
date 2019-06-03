@@ -33,7 +33,7 @@ export default class Hjem extends Component {
             .then(response => {
 
                 if (response.status === false) {   //nei
-                    this.setState({status: false})
+                    
 
                     this.setState({
                         status: false,
@@ -42,9 +42,9 @@ export default class Hjem extends Component {
                 }
 
                 if (response.status === true) {   //ja
-                    this.setState({status: true})
+                   
                     this.setState({
-                        status: false,
+                        status: true,
                         messages: [],
                     });
                 }
@@ -102,20 +102,6 @@ export default class Hjem extends Component {
                 <Authentication/>
                 <div className="placeholder">
 
-                    {
-                        this.state.status === true
-                            ? (
-                                <h1>Success</h1>
-                            ) : (null)
-                    }
-                    {
-                        this.state.status === false
-                            ? (
-                                <h1>Error</h1>
-                            ) : (null)
-                    }
-
-
                     <div className="banner">
                         <h4>Forside:</h4><br/>
 
@@ -144,6 +130,7 @@ export default class Hjem extends Component {
                                 <p key={i}>{message}</p>
                             ))}
                         </div>
+                      {this.state.status === true ? <div className="successmsg">OK!</div> : ''}
 
                         <button type="button" className="addbutton" onClick={this.submit}><i
                             className="fas fa-sync-alt"></i> Oppdater

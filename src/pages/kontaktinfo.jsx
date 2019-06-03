@@ -119,7 +119,7 @@ export default class Kontakt extends Component {
                                 <p key={i}>{message}</p>
                             ))}
                         </div>
-                        {this.state.status === true ? <div className="successmsg">Everyting is awesome!</div> : ''}
+                        {this.state.status === true ? <div className="successmsg">OK!</div> : ''}
 
                         <button type="button" className="addbutton" onClick={this.submit}><i
                             className="fas fa-sync-alt"></i> Oppdater

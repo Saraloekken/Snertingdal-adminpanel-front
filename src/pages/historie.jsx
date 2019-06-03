@@ -33,8 +33,6 @@ export default class Histore extends Component {
 
                 if (response.status === false) {   //nei
 
-                    this.setState({status: false});
-
                     this.setState({
                         status: false,
                         messages: response.messages,
@@ -42,10 +40,8 @@ export default class Histore extends Component {
                 }
                 if (response.status === true) {   //ja
 
-                    this.setState({status: true})
-
                     this.setState({
-                        status: false,
+                        status: true,
                         messages: [],
                     });
 
@@ -139,7 +135,7 @@ export default class Histore extends Component {
                                 <p key={i}>{message}</p>
                             ))}
                         </div>
-
+                        {this.state.status === true ? <div className="successmsg">OK!</div> : ''}
 
                         <button type="button" className="addbutton" onClick={this.submit}><i
                             className="fas fa-plus"></i> Legg til
@@ -176,6 +172,7 @@ export default class Histore extends Component {
 
 
                 </div>
+                
             </div>
 
 

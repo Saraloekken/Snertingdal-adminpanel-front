@@ -3,8 +3,13 @@ import '../../src/style.css';
 import Moment from 'react-moment';
 import Authentication from '../components/authentication';
 
-
 export default class Events extends Component {
+
+/**    
+ * Creating the Events component
+ * @param {object} props - 
+ */
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -28,8 +33,14 @@ export default class Events extends Component {
             events: []
         }
     }
-
-
+    
+/**    
+ * Inserting an Event into to database
+ * @param {object} data - event data 
+ * @param {File} thumbnail - thumbnail image file
+ * @param {File} banner - banner image file
+ */
+    
     insert(data, thumbnail, banner) {
         var form = new FormData();
 
@@ -68,17 +79,32 @@ export default class Events extends Component {
             })
     }
 
+    
+/**    
+ * Handle changes in input fields
+ * @param {Event} event - change event
+ */ 
+    
+    
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
     }
 
-
+/**    
+ * Handle selection file inputs
+ * @param {Event} event - change event
+ */ 
+    
     handleSelectFile(event) {
         this.setState({
             [event.target.name]: event.target.files[0],
             [event.target.name + 'Text']: event.target.files[0].name,
         });
     }
+    
+/**    
+ * Sending Event to database
+ */ 
 
     submit() {
         var thumbnail = this.state.thumbnail;
@@ -92,6 +118,10 @@ export default class Events extends Component {
     }
 
 
+/**    
+ * Fetching Events from the database
+ */     
+    
     getData() {
         fetch('http://folk.ntnu.no/saralok/snertingdal/pages/events/events-getdata.php')
             .then((response) => response.json())
@@ -112,6 +142,12 @@ export default class Events extends Component {
     }
 
 
+/**    
+ * Deleting an Event from the database
+ * @param {number} id - the event id
+ * @param {Event} event - click event
+ */      
+    
     remove(id, event) {
 
         var form = new FormData();
@@ -215,6 +251,7 @@ export default class Events extends Component {
                             <p key={i}>{message}</p>
                         ))}
                     </div>
+                    {this.state.status === true ? <div className="successmsg">OK!</div> : ''}
 
                     <button type="button" className="addbutton" onClick={this.submit.bind(this)}><i
                         className="fas fa-plus"/> Legg til
@@ -244,7 +281,7 @@ export default class Events extends Component {
                         </div>
                     ))}
                 </div>
-
+                
             </div>
 
         )

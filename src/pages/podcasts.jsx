@@ -142,6 +142,7 @@ export default class Podcasts extends Component {
                             <p key={i}>{message}</p>
                         ))}
                     </div>
+                    {this.state.status === true ? <div className="successmsg">OK!</div> : ''}
 
 
                     <button type="button" className="addbutton" onClick={this.submit}><i
